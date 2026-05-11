@@ -8,8 +8,8 @@ grafo["inicio"] = {}
 grafo["inicio"]["a"] = 6
 grafo["inicio"]["b"] = 2
 
-grafo["a"] = {}
-grafo["a"]["fim"] = 1
+grafo["a"] = {} #inicia a tabela de conexões do vértice "a" como um dicionário vazio, indicando que inicialmente não há conexões definidas para esse vértice.
+grafo["a"]["fim"] = 1 # depois, adicionamos uma conexão do vértice "a" para o vértice "fim" com um peso de 1, indicando que o custo para ir de "a" para "fim" é 1.
 
 grafo["b"] = {}
 grafo["b"]["a"] = 3
@@ -25,16 +25,16 @@ custos["b"] = 2
 custos["fim"] = infinito 
 
 pais = {}
-pais["a"] = "inicio"
+pais["a"] = "inicio" # indica que o pai do vértice "a" é o vértice "inicio", ou seja, para chegar a "a", você deve passar por "inicio".
 pais["b"] = "inicio"
-pais["fim"] = None
+pais["fim"] =  None # o vértice "fim" não tem pai, pois é o destino final.
 
 processados = [] # essa lista é usada para manter o registro dos vértices que já foram processados, para evitar loops infinitos.
 
 #função para encontrar o vértice com o custo mais baixo que ainda não foi processado
 def ache_no_custo_mais_baixo(custos):
-    custo_mais_baixo = float("inf")
-    nodo_mais_barato = None
+    custo_mais_baixo = float("inf") #inicializamos o custo mais baixo como infinito, para garantir que qualquer custo encontrado será menor do que esse valor inicial.
+    nodo_mais_barato = None #inicializamos o nodo mais barato como None, para indicar que ainda não encontramos um nodo com custo mais baixo.
     for nodo in custos: # para cada nodo nos custos
         custo = custos[nodo] # obtemos o custo do nodo
         if custo < custo_mais_baixo and nodo not in processados: # se o custo do nodo for menor do que o custo mais baixo encontrado até agora e o nodo ainda não foi processado
